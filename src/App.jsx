@@ -3,6 +3,8 @@ import { ColoredMessage } from './components/ColoredMessage';
 import { TestMessage } from './components/TestMessage';
 // useStateというイベントの状態を管理するデフォルトの機能(React Hooks)をインポート
 import { useState } from 'react'
+// useEffectというコンポーネントの副作用を制御するデフォルトの機能(React Hooks)をインポート
+import { useEffect } from 'react'
 
 // index.jsに定義した関数を移し、index.jsで使えるようエクスポート
 // コンポーネントファイルは基本的にjsx(tsx)形式
@@ -10,7 +12,7 @@ export const App = () => {
     // カウント等のイベントでStateが変更される度、コンポーネントが初めから再処理される（再レンダリング）
     console.log("レンダリング");
 
-    // useStateを定義（第一引数: State変数、第二引数: Stateを更新する関数
+    // useStateを定義（第一引数: State変数、第二引数: Stateを更新する関数）
     // useStateの引数に初期値設定
     // 再レンダリングによる初期値への影響はない
     const [count, setCount] = useState(0);
@@ -19,10 +21,20 @@ export const App = () => {
     const onClickButton = () => {
         // alert("ボタンがクリックされました");
         // Stateを更新する関数を使用して、countの値を1増やす
-        setCount(count + 1);
+        // setCount(count + 1);
         // 厳密に記述する場合はset関数内で関数を指定(今のStateに基づいて更新される)
         setCount((count) => count + 1)
     };
+
+    // useEffectを定義（第一引数: 実行する関数＝アロー関数、第二引数: 特定の値＝配列）
+    // 特定の値が変更された時に処理を実行する
+    // 例：countのStateが変更されたらログを出す
+    // 再レンダリングが不要な初期だけ実行したい処理に対して有効
+    useEffect(() => {
+        console.log("Countが更新されました: " + count);
+    }, [count]);
+
+
 
     // return以降が複数行になる場合は()で囲む
     return (

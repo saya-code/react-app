@@ -1,3 +1,6 @@
+// ColoredMessage.jsで定義した関数をインポート
+import { ColoredMessage } from './components/ColoredMessage';
+
 // index.jsに定義した関数を移し、index.jsで使えるようエクスポート
 // コンポーネントファイルは基本的にjsx(tsx)形式
 export const App = () => {
@@ -8,8 +11,15 @@ export const App = () => {
 
     // JSのオブジェクトでハイフンは使えないため、プロパティはキャメルケースで記述
     // 値はダブルクウォーテーションで囲む
-    const contentStyle = {
-        color: "blue",
+    // const contentStyle = {
+    //     color: "blue",
+    //     fontSize: "20px"
+    // }
+
+    // 違う色にしたい時に都度変数を定義するとコードが肥大化する
+    // Propsを使ってコンポーネント(ColorMessage)を動的に使えるようにする
+    const contentPinkStyle = {
+        color: "pink",
         fontSize: "20px"
     }
 
@@ -20,7 +30,12 @@ export const App = () => {
             {/* スタイルは{}で囲むだけでなく、JSのオブジェクトとして記述 { color: "red" } */}
             <h1 style={{ color: "red" }}>こんにちは！</h1>
             {/* 事前に定義した変数を割り当てることも可能 */}
-            <h1 style={contentStyle}>お元気ですか？</h1>
+            {/* <h1 style={contentStyle}>お元気ですか？</h1> */}
+
+            {/* ColoredMessage.jsからの関数を使用 */}
+            <ColoredMessage />
+
+            <h1 style={contentPinkStyle}>元気です!</h1>
 
             {/* return内は{}で囲むことでJSやコメントの記述が可能 */}
             { console.log("TEST")}

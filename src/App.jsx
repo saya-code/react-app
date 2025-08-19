@@ -7,9 +7,12 @@ import { useState } from 'react'
 // index.jsに定義した関数を移し、index.jsで使えるようエクスポート
 // コンポーネントファイルは基本的にjsx(tsx)形式
 export const App = () => {
+    // カウント等のイベントでStateが変更される度、コンポーネントが初めから再処理される（再レンダリング）
+    console.log("レンダリング");
 
     // useStateを定義（第一引数: State変数、第二引数: Stateを更新する関数
     // useStateの引数に初期値設定
+    // 再レンダリングによる初期値への影響はない
     const [count, setCount] = useState(0);
 
     // カウントイベント

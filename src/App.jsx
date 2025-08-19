@@ -9,33 +9,17 @@ export const App = () => {
         alert("ボタンがクリックされました");
     };
 
-    // JSのオブジェクトでハイフンは使えないため、プロパティはキャメルケースで記述
-    // 値はダブルクウォーテーションで囲む
-    // const contentStyle = {
-    //     color: "blue",
-    //     fontSize: "20px"
-    // }
-
-    // 違う色にしたい時に都度変数を定義するとコードが肥大化する
-    // Propsを使ってコンポーネント(ColorMessage)を動的に使えるようにする
-    const contentPinkStyle = {
-        color: "pink",
-        fontSize: "20px"
-    }
-
     // return以降が複数行になる場合は()で囲む
     return (
         // return以降は1つのタグ(divなど)で囲われている必要がある
         <div>
             {/* スタイルは{}で囲むだけでなく、JSのオブジェクトとして記述 { color: "red" } */}
             <h1 style={{ color: "red" }}>こんにちは！</h1>
-            {/* 事前に定義した変数を割り当てることも可能 */}
-            {/* <h1 style={contentStyle}>お元気ですか？</h1> */}
 
             {/* ColoredMessage.jsからの関数を使用 */}
-            <ColoredMessage />
-
-            <h1 style={contentPinkStyle}>元気です!</h1>
+            {/* Propsを渡す方（App.js）で色とメッセージを指定 */}
+            <ColoredMessage color="blue" message="お元気ですか？" />
+            <ColoredMessage color="pink" message="元気です！" />
 
             {/* return内は{}で囲むことでJSやコメントの記述が可能 */}
             { console.log("TEST")}

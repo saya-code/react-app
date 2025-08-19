@@ -1,8 +1,29 @@
 import ReactDOM from "react-dom/client";
+import Fragment from 'react'
 
 // アロー関数で定義
 const App = () => {
-    return <h1>こんにちは！</h1>;
+
+    // return以降が複数行になる場合は()で囲む
+    return (
+        // return以降は1つのタグ(divなど)で囲われている必要がある
+        <div>
+            <h1>こんにちは！</h1>
+            <h1>お元気ですか？</h1>
+        </div>
+
+        // またはFragmentおよび空タグで囲むことも可能
+        // 不要なDOMを生成したくない時に有効
+        // <>
+        //     <h1>こんにちは！</h1>
+        //     <h1>お元気ですか？</h1>
+        // </>
+
+        // <Fragment>
+        //     <h1>こんにちは！</h1>
+        //     <h1>お元気ですか？</h1>
+        // </Fragment>
+    );
 }
 
 // JSX記法

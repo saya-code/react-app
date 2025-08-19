@@ -1,6 +1,11 @@
 // ColoredMessage.jsで定義した関数をインポート
 import { ColoredMessage } from './components/ColoredMessage';
-import { TestMessage } from './components/TestMessage';
+// コンポーネントのファイル名が一致しなくてもインポート可能({}も不要)
+import Test from './components/TestMessage';
+// asを使えば、defaultでなくても任意の名称でインポート可能
+// import { TestMessage as Test} from './components/TestMessage';
+// import { TestMessage } from './components/TestMessage';
+
 // useStateというイベントの状態を管理するデフォルトの機能(React Hooks)をインポート
 import { useState } from 'react'
 // useEffectというコンポーネントの副作用を制御するデフォルトの機能(React Hooks)をインポート
@@ -48,12 +53,12 @@ export const App = () => {
             <ColoredMessage color="pink">元気です！ </ColoredMessage>
 
             {/* 任意の名称で囲った要素を渡せるため、複雑なコンポーネントを渡したい時に有効 */}
-            <TestMessage color="green">
+            <Test color="green">
                 <div>
                     <p>テストメッセージ</p>
                     <p>childrenではHTML要素をPropsとして渡せます</p>
                 </div>
-            </TestMessage>
+            </Test>
 
             {/* ColoredMessage.jsからの関数を使用 */}
             {/* Propsを渡す方（App.js）で色とメッセージを指定 */}

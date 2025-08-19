@@ -1,4 +1,5 @@
 // index.jsに定義した関数を移し、index.jsで使えるようエクスポート
+// コンポーネントファイルは基本的にjsx(tsx)形式
 export const App = () => {
 
     // return以降が複数行になる場合は()で囲む

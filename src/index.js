@@ -1,17 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// アロー関数で定義
+const App = () => {
+    return <h1>こんにちは！</h1>;
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// JSX記法
+// react18ではrender関数が廃止され、createRootが推奨されている
+// createRoot関数の引数に「index.htmlのrender箇所」を指定し、変数に格納
+// render関数の引数に「render対象」を指定
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
